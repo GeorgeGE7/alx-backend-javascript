@@ -6,13 +6,13 @@ class StudentsController {
     readDatabase(process.argv[2].toString())
       .then((students) => {
         data.push("This is the list of our students");
-        const keys = Object.keys(students);
-        keys.sort();
-        for (let i = 0; i < keys.length; i += 1) {
+        const studentsKeys = Object.keys(students);
+        studentsKeys.sort();
+        for (let i = 0; i < studentsKeys.length; i += 1) {
           data.push(
-            `Number of students in ${keys[i]}: ${
-              students[keys[i]].length
-            }. List: ${students[keys[i]].join(", ")}`
+            `Number of students in ${studentsKeys[i]}: ${
+              students[studentsKeys[i]].length
+            }. List: ${students[studentsKeys[i]].join(", ")}`
           );
         }
         response.status(200).send(data.join("\n"));
